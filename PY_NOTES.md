@@ -43,7 +43,6 @@ You can use the `.extend()` method to add **every item** from one list to anothe
 You can use the `.remove()` method to remove a particular value from a list.
 
 
-
 **Join**
 
 The str type's .join() method lets us combine all of the items in a list into a string with a particular string between each pair of items. How about an example?
@@ -71,7 +70,6 @@ However, Ruby's .join method is the following.
 [ "a", "b", "c" ].join        #=> "abc"
 [ "a", "b", "c" ].join("-")   #=> "a-b-c"
 ```
-
 
 **Deletion**
 
