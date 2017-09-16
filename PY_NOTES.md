@@ -75,3 +75,37 @@ However, Ruby's .join method is the following.
 
 `del my_list[0]` and `my_list.remove("a")` do two very different things so be careful when you use each one. `del` deletes an item at a particular index. `.remove()` deletes the first instance of the value you provide it.
 You can't delete things from a string using `del`.
+
+
+## Logic
+The `bool()` function will tell you whether something (a variable, a comparison, or anything else) evaluates to true or false. It's super-handy for testing your assumptions when you're still learning.
+
+True + True => 2
+
+The following values are considered false:
+- None
+- False
+- zero of any numeric type
+- any empty sequence, '', (), []
+- any empty mapping, {}
+
+The `is` operator compares whether A has the same memory address as B
+
+Python if blocks always start the same way:
+
+```
+time = 15
+
+store_open = None
+store_hours = [13, 14, 15, 16]
+
+if time in store_hours:
+    store_open = True
+elif time not in store_hours:
+    store_open = False
+else:
+    store_open = None
+```
+
+Python has two uses for the `in` keyword.
+`in` returns whether or not a value is inside of a container. We can use this to see if, for example, a smaller string is in a bigger string or if a certain item is in a list.
