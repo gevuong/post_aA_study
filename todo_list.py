@@ -24,21 +24,22 @@ def add_todo(new_todo):
     todo_list.append(new_todo)
     print('Added {} to what is now a list of {} todos'.format(new_todo, len(todo_list)))
 
-show_help()
+def main():
+    show_help()
 
-# ask for new todo
-while True:
-    new_todo = input("new_todo: ")
+    # ask for new todo
+    while True:
+        new_todo = input("new_todo: ")
 
-    # be able to quit app
-    if new_todo == 'DONE':
-        break
-    elif new_todo == 'SHOW':
-        show_todo()
-        continue
-    elif new_todo == 'HELP':
-        show_help()
-        continue
-    add_todo(new_todo)
+        # be able to quit app
+        if new_todo == 'DONE':
+            break
+        elif new_todo == 'SHOW':
+            show_todo()
+            continue
+        elif new_todo == 'HELP':
+            show_help()
+            continue
+        add_todo(new_todo)
 
-show_todo()
+    show_todo()
