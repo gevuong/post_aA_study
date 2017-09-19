@@ -7,7 +7,10 @@ words = [
     'broadway',
     'kumquat',
     'lemon',
-    'melon'
+    'melon',
+    'computer',
+    'vitamin',
+    'pharmacy'
 ]
 
 while True:
@@ -16,21 +19,21 @@ while True:
         break
 
 # pick a random word
-    secret_word = random.choice(words) # .choice picks a random word out of list
+    secret_word = random.choice(words) # .choice chooses a random word from an iterable (ie. list or string)
     bad_guesses = []
     good_guesses = []
-
-    while len(bad_guesses) < 7 and len(good_guesses) != len(secret_word):
+    total_guesses = 6
+    while len(bad_guesses) < total_guesses and len(good_guesses) != len(list(secret_word)):
 
     # draw spaces
         for letter in secret_word:
-            if letter in secret_word:
+            if letter in good_guesses:
                 print(letter, end="")
             else:
                 print("_", end="")
 
         print(" ") # line break
-        print("{}/7 strikes".format(len(bad_guesses)))
+        print("{}/{} strikes".format(len(bad_guesses), total_guesses))
         print(" ")
 
     # take guess
@@ -51,4 +54,4 @@ while True:
         else:
             bad_guesses.append(guess)
     else:
-        print("You didn't guess it. The word was {}".format(secret_word))
+        print("You didn't guess the word!. The word is {}".format(secret_word))
