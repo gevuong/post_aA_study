@@ -61,6 +61,8 @@ helper.page_index(-10) # should == -1 because negative indexes are invalid
 
 
 ### Challenge 2
+#Please write a simple ETL client for a fake document service.
+
 import json
 
 class ETLClient:
@@ -81,49 +83,48 @@ class ETLClient:
         return json.dumps(documents)
 
 
-Please write a simple ETL client for a fake document service.
-
-Requirements
-1: run() must return a JSON string.
-See test_req_1
-
-2: run() must return a JSON string as a dictionary, containing:
-
-'doc-count': [integer] the number of documents received
-'error-count':[integer] the number of errors received
-'docs': [dictionary] keys are a document's ID string and values are arrays of words in the document
-See test_req_2
-3: all of run()'s output words must be lower case
-See test_req_3
-
-4: these words must not appear in the word array: and, or, not, but, to, in
-See test_req_4
-
-5: RetryImmediatelyError.
-The service's handle_request() may raise RetryImmediatelyError.
-Do not count the error against the number of requests to run.
-Re-try the operation (by calling the handle_request() again) until successful.
-Include the number of errors in the output as in described in 2 above.
-See test_req_5
-
-6: The service may ask you to 'update' docs. These requests will look like:
-
-  {'operation': 'update',
-    'document': {
-      'id': [string] document id
-      'data': [string] new document data
-      }
-  }
-Expect that the document ID will match an existing document previously sent by an 'add' operation.
-The document with the matching ID should have its data replaced with the data sent in the 'update' operation.
-See test_req_6
-
-7:
-The service may ask you to 'delete' docs. These requests will look like:
-
-  {'operation': 'delete',
-    'document-id': [string] document id
-   }
-Expect that the document ID will match an existing document previously sent by an 'add' operation.
-Delete the document that matches that ID.
-See test_req_7
+# Requirements
+# 1: run() must return a JSON string.
+# See test_req_1
+#
+# 2: run() must return a JSON string as a dictionary, containing:
+#
+# 'doc-count': [integer] the number of documents received
+# 'error-count':[integer] the number of errors received
+# 'docs': [dictionary] keys are a document's ID string and values are arrays of words in the document
+# See test_req_2
+# 3: all of run()'s output words must be lower case
+# See test_req_3
+#
+# 4: these words must not appear in the word array: and, or, not, but, to, in
+# See test_req_4
+#
+# 5: RetryImmediatelyError.
+# The service's handle_request() may raise RetryImmediatelyError.
+# Do not count the error against the number of requests to run.
+# Re-try the operation (by calling the handle_request() again) until successful.
+# Include the number of errors in the output as in described in 2 above.
+# See test_req_5
+#
+# 6: The service may ask you to 'update' docs. These requests will look like:
+#
+#   {'operation': 'update',
+#     'document': {
+#       'id': [string] document id
+#       'data': [string] new document data
+#       }
+#   }
+# Expect that the document ID will match an existing document previously sent by an 'add' operation.
+# The document with the matching ID should have its data replaced with the data sent in the 'update' operation.
+# See test_req_6
+#
+# 7:
+# The service may ask you to 'delete' docs. These requests will look like:
+#
+#   {'operation': 'delete',
+#     'document-id': [string] document id
+#    }
+# Expect that the document ID will match an existing document previously sent by an 'add' operation.
+# Delete the document that matches that ID.
+# See test_req_7
+# 
