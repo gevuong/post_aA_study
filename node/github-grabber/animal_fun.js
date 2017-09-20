@@ -7,7 +7,9 @@ const server = http.createServer((req, res) => {
   res.writeHead(200, {'Content-Type': 'text/html'});
   res.write("Hello World!"); // write response to client
   res.end(); // end response
-}).listen(8000, () => console.log(listening on 8000);); // server object listens on port 8000
+}).listen(8000, () =>
+    console.log('listening on 8000')
+  ); // server object listens on port 8000
 
 // fs.readFile is an async fcn. Callback provides an error obj (if it exists) and data from file. This order of callback is common in Node.
 fs.readFile('./animals.txt', 'utf-8', (err, data) => {
