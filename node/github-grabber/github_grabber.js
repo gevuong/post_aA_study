@@ -1,4 +1,4 @@
-const fs = require('fs');
+const fs = require('fs'); // file system module
 const querystring = require('querystring');
 const https = require('https');
 const http = require('http');
