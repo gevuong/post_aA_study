@@ -12,32 +12,32 @@ const selectAnimals = function(data, letter) {
 
 // Part 1: Reading and Writing from Files
 // async version. Callback provides an error obj (if it exists) and data from file. This order of callback is common in Node. If encoding (ie. utf-8) is not specified, Node returns a buffer instance of Buffer class to handle raw binary data. Each buffer corresponds to raw memory allocated outside V8.
-// fs.readFile('./animals.txt', 'utf-8', (err, data) => {
-//   if (err) throw err;
+fs.readFile('./animals.txt', 'utf-8', (err, data) => {
+  if (err) throw err;
 
-//   if (alphabet.includes(user_input) && user_input.length === 1) {
-//     const CLILetter = user_input.toUpperCase();
-//     let CLIAnimals = selectAnimals(data, CLILetter);
-//
-//     // second argument provides data that should be written to file, and callback will only provide error obj (if it exists)
-//     fs.writeFile(`${CLILetter}_animals.txt`, CLIAnimals, err => {
-//       if (err) throw err;
-//       console.log(`${CLILetter}_animals.txt successfully written`);
-//     })
-//   }
-// });
+  if (alphabet.includes(user_input) && user_input.length === 1) {
+    const CLILetter = user_input.toUpperCase();
+    let CLIAnimals = selectAnimals(data, CLILetter);
+
+    // second argument provides data that should be written to file, and callback will only provide error obj (if it exists)
+    fs.writeFile(`${CLILetter}_animals.txt`, CLIAnimals, err => {
+      if (err) throw err;
+      console.log(`${CLILetter}_animals.txt successfully written`);
+    })
+  }
+});
 
 // sync version
-const animalsList = fs.readFileSync('./animals.txt', 'utf-8')
-if (alphabet.includes(user_input) && user_input.length === 1) {
-  const CLILetterSync = user_input.toUpperCase();
-  let CLIAnimalsSync = selectAnimals(animalsList, CLILetterSync);
-
-  fs.writeFile(`${CLILetterSync}_animals.txt`, CLIAnimalsSync, err => {
-    if (err) throw err;
-    console.log(`${CLILetterSync}_animals.txt successfully written`);
-  })
-}
+// const animalsList = fs.readFileSync('./animals.txt', 'utf-8')
+// if (alphabet.includes(user_input) && user_input.length === 1) {
+//   const CLILetterSync = user_input.toUpperCase();
+//   let CLIAnimalsSync = selectAnimals(animalsList, CLILetterSync);
+//
+//   fs.writeFile(`${CLILetterSync}_animals.txt`, CLIAnimalsSync, err => {
+//     if (err) throw err;
+//     console.log(`${CLILetterSync}_animals.txt successfully written`);
+//   })
+// }
 
 
 //////////////
@@ -46,6 +46,7 @@ const cache = {}; // create POJO to store and access previously requested conten
 
 // create a HTTP server object using createServer method
 const animalServer = http.createServer((req, res) => {
+  console.log(req);
   const query = req.url.split('?')[1];
 
   if (query !== undefined && query.length == 1 && alphabet.includes(query)) {
@@ -59,7 +60,6 @@ const animalServer = http.createServer((req, res) => {
     fs.readFile('./animals.txt', 'utf-8', (err, data) => {
       if (err) throw err;
       let filtered_animals = selectAnimals(data, queriedLetter);
-      console.log('filtered_animals: ', filtered_animals);
       cache[`${queriedLetter}`] = filtered_animals;
       console.log('cache: ', cache);
       res.end(filtered_animals);
