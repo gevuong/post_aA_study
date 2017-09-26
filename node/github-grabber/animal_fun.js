@@ -42,7 +42,7 @@ fs.readFile('./animals.txt', 'utf-8', (err, data) => {
 
 //////////////
 // Part 2: Repeat Part 1 but using HTTP req/res cycle
-const cache = {}; // create POJO to store and access previously requested content in memory. This is to prevent having to readFile with every request.
+const cache = {}; // create POJO to store and access previously requested content in memory. This is to prevent having to readFile() with every request.
 
 // create a HTTP server object using createServer method
 const animalServer = http.createServer((req, res) => {
@@ -62,7 +62,7 @@ const animalServer = http.createServer((req, res) => {
       let filtered_animals = selectAnimals(data, queriedLetter);
       cache[`${queriedLetter}`] = filtered_animals;
       console.log('cache: ', cache);
-      res.end(filtered_animals);
+      res.end(filtered_animals); // sends body of response to client and signals to server that response (header and body) has been sent completely.
     })
     }
 
@@ -76,7 +76,7 @@ const animalServer = http.createServer((req, res) => {
       res.end(data);
     })
   }
-  res.writeHead(200, {'Content-Type': 'text/html'}); // converts txt to html
+  res.writeHead(200, {'Content-Type': 'text/html'}); // converts data to text/html format
   res.write(`Animals that start with letter, ${queriedLetter}: `); // write response to client
 }).listen(8000, () =>
     console.log('listening on 8000')

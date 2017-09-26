@@ -40,18 +40,23 @@ const githubServer = http.createServer((req, res) => {
         dataStream.on('data', chunk => {
           repoData += chunk; // chunk is a Buffer obj. We don't have data all at once, so as data is being streamed, chunks of data are concatenated to repoData, a single large string enclosing a single array of multiple starred repo objects
         })
+
         dataStream.on('end', () => {
           const parsedRepos = JSON.parse(repoData); // JSON.parse returns an array of repo objects.
-          // console.log('typeof parsedRepos: ', parsedRepos instanceof Array);
           const repos = parsedRepos.map(repo => {
             return (
               `Repo: ${repo.name}, Stars: ${repo.stargazers_count}`
             )
-          }).join('\n')
+          }).join('\n') // array of repo strings need to be joined to a single string. When displayed as html or text, '\n' creates a new line for each repo string.
+
           fs.writeFile(`${username}_starred_repos.txt`, repos, err => {
             if (err) throw err;
+            console.log(`${username}_starred_repos.txt was successfully written`);
           })
-          res.end(repos);
+          // alternative method to writeFile
+            // const writeStream = fs.createWriteStream(`./${username}_starred_repos.txt`);
+            // writeStream.write(repos);
+          res.end(repos); // sends body of response to client and signals to server that response (header and body) has been sent completely.
         })
       })
     })
