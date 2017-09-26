@@ -1,9 +1,9 @@
 const fs = require('fs'); // File System module
 const http = require('http');
-const queryString = require('querystring');
 const alphabet = 'abcdefghijklmnopqrstuvwxyz';
-const user_input = process.argv[2].toLowerCase(); // returns arguments passed from command line using global 'process' object provided by Node
+const user_input = process.argv[2].toLowerCase(); // return arguments passed from command line using global 'process' object provided by Node
 
+// return a string of animal names starting with specified letter.
 const selectAnimals = function(data, letter) {
     return data.split("\n")
     .filter(animal => animal.startsWith(letter))
@@ -27,7 +27,7 @@ fs.readFile('./animals.txt', 'utf-8', (err, data) => {
   }
 });
 
-// sync version
+// sync version:
 // const animalsList = fs.readFileSync('./animals.txt', 'utf-8')
 // if (alphabet.includes(user_input) && user_input.length === 1) {
 //   const CLILetterSync = user_input.toUpperCase();
@@ -41,7 +41,7 @@ fs.readFile('./animals.txt', 'utf-8', (err, data) => {
 
 
 //////////////
-// Part 2: Using HTTP req/res cycle
+// Part 2: Repeat Part 1 but using HTTP req/res cycle
 const cache = {}; // create POJO to store and access previously requested content in memory. This is to prevent having to readFile with every request.
 
 // create a HTTP server object using createServer method
