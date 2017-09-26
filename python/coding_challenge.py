@@ -60,7 +60,7 @@ helper.page_index(-10) # should == -1 because negative indexes are invalid
 
 
 
-### Challenge 2
+### Challenge 2: Incomplete
 #Please write a simple ETL client for a fake document service.
 
 import json
@@ -127,4 +127,4 @@ class ETLClient:
 # Expect that the document ID will match an existing document previously sent by an 'add' operation.
 # Delete the document that matches that ID.
 # See test_req_7
-# 
+#
