@@ -89,15 +89,13 @@ def restart():
         sys.exit() # exits the game
 
 def welcome():
+    print("Welcome to Letter Game!")
     start = input("Press enter/return to start, or q to quit: ")
     if start.lower() == 'q':
         print("See you next time!")
         sys.exit()
     else:
         return True # doesn't do anything, nice to return something
-
-
-print("Welcome to Letter Game!")
 
 while True:
     clear()
