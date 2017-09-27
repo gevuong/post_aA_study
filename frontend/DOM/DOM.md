@@ -16,3 +16,27 @@
 1. Selecting elements
 2. Read or manipulating elements
 3. Respond and listen to user event or actions
+
+
+### Defining Variables
+- ```const``` should be your first choice in declaring variables. Use const to store numbers that shouldn't change while your program runs. You'll use ```const``` when selecting an element on a page, or when assigning a function to a variable.
+
+- ```const``` is used to prevent reassignment bugs and to help debug your code faster. const has block level scoping. A block of code is anything between curly braces.
+
+- ```const``` doesn't prevent arrays and objects from being modified. ```const``` just prevents them from being reassigned or overwritten completely.
+
+```
+const days = ['Monday'];
+days.push('Tuesday');
+days // => ['Monday', 'Tuesday']
+
+const person = {first_name: 'Imogen'};
+person.last_name = "Heap";
+person // => {first_name: 'Imogen', last_name: 'Heap'}
+```
+
+- For a variable whose value will change during the life of a program, ```const``` would be a bad choice. For example, you wouldn't want to use ```const``` to store a score of a game, since the score changes as the player plays the game. In that case, use the ```let``` keyword.
+
+- ```let``` works just like ```var```, allowing you to reassign variables. But unlike ```var```, it has block-level scoping. For example, when incrementing an index in a for loop, using ```let i = 0``` means the i variable is localized to each cycle of the for loop. In other words, the i variable is distinct for each cycle through the for loop.
+
+- ```var``` usage should be avoided, since there are a number of scoping issues associated with the ```var``` keyword.
