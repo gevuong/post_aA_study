@@ -60,6 +60,18 @@ toggleList.addEventListener('click', () => {
   };
 })
 
+for (let item = 0; item < listItems.length; item++) {
+  listItems[item].style.color = 'purple';
+}
+
+for (let item = 0; item < nonPurpleItems.length; item++) {
+  nonPurpleItems[item].style.color = 'orange';
+}
+
+for (let item = 0; item < evens.length; item++) {
+  evens[item].style.backgroundColor = 'lightgray';
+}
+
 // Nodes belong to the DOM, while elements are plain HTML
 addItemButton.addEventListener('click', () => {
   let ul = document.getElementsByTagName('ul')[0];
@@ -78,15 +90,3 @@ removeItemButton.addEventListener('click', () => {
   let li = document.querySelector('li:last-child');
   ul.removeChild(li);
 })
-
-for (let item = 0; item < listItems.length; item++) {
-  listItems[item].style.color = 'purple';
-}
-
-for (let item = 0; item < nonPurpleItems.length; item++) {
-  nonPurpleItems[item].style.color = 'orange';
-}
-
-for (let item = 0; item < evens.length; item++) {
-  evens[item].style.backgroundColor = 'lightgray';
-}
