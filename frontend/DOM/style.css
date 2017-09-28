@@ -1,0 +1,56 @@
+@import 'https://fonts.googleapis.com/css?family=Lato:400,700';
+
+body {
+  font-family: 'Lato', sans-serif;
+  padding-left: 43px;
+  padding-top: 16px;
+  /*line-height: 1.5;*/
+}
+
+h1 {
+  margin-bottom: 0;
+}
+
+p {
+  font-size: 1.08em;
+  color: #637a91;
+}
+
+#headingParagraph {
+  padding-bottom: 20px;
+}
+
+#listParagraph {
+  padding-top: 35px;
+  padding-bottom: 0px;
+  margin: auto;
+}
+
+input, button {
+  font-size: 0.8em;
+  border: solid 1px;
+  border-radius: 0.3em;
+  border-color: rgba(0, 0, 0, 0.1);
+  padding: 0.65em 1em;
+  width: 200px;
+}
+
+input {
+  text-align: center;
+}
+
+#myButton {
+  color: white;
+  background: #52bab3;
+}
+
+#resetHeading, #inputBackgroundColor{
+  margin-top: 6px;
+  margin-left: 18.05em;
+}
+
+#buttonBackground {
+  margin-top: 6px;
+  color: white;
+  background: #508abc;
+}

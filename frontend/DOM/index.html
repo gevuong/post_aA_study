@@ -3,11 +3,36 @@
   <head>
     <meta charset="utf-8">
     <title>JavaScript and the DOM</title>
-    <!-- <link rel="stylesheet" href="/css/style.css"> -->
+    <link rel="stylesheet" href="./style.css">
   </head>
   <body>
     <h1 id="myHeading">JavaScript and the DOM</h1>
-    <p>Making a web page interactive</p>
+    <p title='label' id='headingParagraph'>Making a web page interactive</p>
+
+    <div>
+      <input type="text" id='myTextInput' placeholder='Input a color'>
+      <button id="myButton">Change Headline Color</button>
+    </div>
+
+    <div class='resetHeadline'>
+      <button id="resetHeading">Reset Headline Color</button>
+    </div>
+
+    <div>
+      <input type="text" id='myBackgroundInput' placeholder='Input background color'>
+      <button id="buttonBackground">Change Background Color</button>
+    </div>
+
+    <p id='listParagraph'> Things that are purple are colored purple:</p>
+      <ul class='myList'>
+        <li>grapes</li>
+        <li class='not-purple'>oranges</li>
+        <li>lavender</li>
+        <li>plums</li>
+        <li class='not-purple'>mangos</li>
+        <li class='not-purple'>pumpkins</li>
+        <li>amethyst</li>
+      </ul>
     <script src="app.js"></script>
   </body>
 </html>
