@@ -13,10 +13,14 @@ h1 {
 
 p {
   font-size: 1.08em;
-  color: #637a91;
 }
 
+p.description {
+  margin-top: 1em;
+  color: 'black';
+}
 #headingParagraph {
+  color: #637a91;
   padding-bottom: 20px;
 }
 
@@ -26,31 +30,60 @@ p {
   margin: auto;
 }
 
+input {
+  text-align: center;
+}
+
 input, button {
   font-size: 0.8em;
   border: solid 1px;
   border-radius: 0.3em;
   border-color: rgba(0, 0, 0, 0.1);
-  padding: 0.65em 1em;
+  padding: 0.65em 0em;
   width: 200px;
 }
 
-input {
-  text-align: center;
+button {
+  color: white;
+}
+
+#toggleListButton {
+  margin-top: 5em;
+  background: #0CB7F7;
 }
 
 #myButton {
-  color: white;
   background: #52bab3;
 }
 
-#resetHeading, #inputBackgroundColor{
+#resetHeading, #inputBackgroundColor {
   margin-top: 6px;
-  margin-left: 18.05em;
+  margin-left: 16.05em;
+  background-color: darkgray;
 }
 
 #buttonBackground {
   margin-top: 6px;
-  color: white;
   background: #508abc;
+}
+
+button.description {
+  background: #FF9700;
+}
+
+#addItemButton {
+  background: #8771E8;
+}
+
+.removeItemDiv {
+  margin-top: 6px;
+  margin-left: 12.8em;
+}
+
+#removeItemButton {
+  background: #FF0079;
+}
+
+#linkDiv {
+  margin-top: 2em;
 }
