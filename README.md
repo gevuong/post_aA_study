@@ -17,4 +17,5 @@ https://stackoverflow.com/questions/950087/how-do-i-include-a-javascript-file-in
 
 Basically you need to run this code from a (local) server or disable same-origin in the browser for testing (do not do this permanently)
 
-### Solution (workaround) to CORS policy issue: https://stackoverflow.com/questions/46992463/es6-module-support-in-chrome-62-chrome-canary-64-does-not-work-locally-cors-er
+### Solution (workaround) to CORS policy issue:
+- https://stackoverflow.com/questions/46992463/es6-module-support-in-chrome-62-chrome-canary-64-does-not-work-locally-cors-er

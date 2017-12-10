@@ -81,52 +81,46 @@ var _spriteSheet2 = _interopRequireDefault(_spriteSheet);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// add eventListener to wait for document to be loaded before loading <canvas>.
-// document.addEventListener("DOMContentLoaded", function() {
-function drawBackground(background, context, sprite) {
-  background.ranges.forEach(function (_ref) {
-    var _ref2 = _slicedToArray(_ref, 4),
-        x1 = _ref2[0],
-        x2 = _ref2[1],
-        y1 = _ref2[2],
-        y2 = _ref2[3];
+// addEventListener to wait for document to be loaded before loading <canvas>.
+document.addEventListener("DOMContentLoaded", function () {
+  function drawBackground(background, context, sprite) {
+    background.ranges.forEach(function (_ref) {
+      var _ref2 = _slicedToArray(_ref, 4),
+          x1 = _ref2[0],
+          x2 = _ref2[1],
+          y1 = _ref2[2],
+          y2 = _ref2[3];
 
-    // Info on performance when using i++ vs ++i https://stackoverflow.com/questions/29885719/i-vs-i-in-a-javascript-for-loop
-    for (var x = x1; x < x2; x++) {
-      for (var y = y1; y < y2; y++) {
-        sprite.drawTile(background.tile, context, x, y);
+      // Info on performance when using i++ vs ++i https://stackoverflow.com/questions/29885719/i-vs-i-in-a-javascript-for-loop
+      for (var x = x1; x < x2; x++) {
+        for (var y = y1; y < y2; y++) {
+          sprite.drawTile(background.tile, context, x, y);
+        }
       }
-    }
-  });
-}
+    });
+  }
 
-// Step 1:
-var canvasEl = document.getElementById("game-screen");
-canvasEl.width = 640;
-canvasEl.height = 640;
+  // Step 1:
+  var canvasEl = document.getElementById("game-screen");
+  canvasEl.width = 640;
+  canvasEl.height = 640;
 
-var ctx = canvasEl.getContext("2d"); // context (or ctx) contains the API that we draw with
-// ctx.fillRect(0, 0, 50, 50); // draw black rectangle to test ctx
+  var ctx = canvasEl.getContext("2d"); // context (or ctx) contains the API that we draw with
+  // ctx.fillRect(0, 0, 50, 50); // draw black rectangle to test ctx
 
-(0, _loaders.loadImage)('https://res.cloudinary.com/dtluc0y85/image/upload/v1512870709/spriteSheet_cgq5yb.png').then(function (image) {
-  // load tiles.png, chain a .then() to create spriteSheet with image and tile size.
-  var sprite = new _spriteSheet2.default(image, 16, 16); // specify tile size
-  sprite.define("ground", 0, 0); // define sprite with a name and coord of where the tile is located in spriteSheet.png.
-  sprite.define("sky", 3, 23);
+  (0, _loaders.loadImage)('https://res.cloudinary.com/dtluc0y85/image/upload/v1512870709/spriteSheet_cgq5yb.png').then(function (image) {
+    // load tiles.png, chain a .then() to create spriteSheet with image and tile size.
+    var sprite = new _spriteSheet2.default(image, 16, 16); // specify tile size
+    sprite.define("ground", 0, 0); // define sprite with a name and coord of where the tile is located in spriteSheet.png.
+    sprite.define("sky", 3, 23);
 
-  (0, _loaders.loadLevel)('1-1').then(function (level) {
-    level.backgrounds.forEach(function (background) {
-      return drawBackground(background, ctx, sprite);
+    (0, _loaders.loadLevel)('1-1').then(function (level) {
+      level.backgrounds.forEach(function (background) {
+        return drawBackground(background, ctx, sprite);
+      });
     });
   });
-
-  // for (let x = 0; x < 35; x++) {
-  //   for (let y = 15; y < 17; y++) {
-  //     sprite.drawTile("ground", ctx, x, y); // draw "ground" on ctx with coord to position "ground" in canvas
-  //   }
-  // }
 });
-// })
 
 /***/ }),
 /* 1 */
@@ -140,6 +134,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.loadImage = loadImage;
 exports.loadLevel = loadLevel;
+
+
 // function takes a url and returns a promise
 function loadImage(url) {
   return new Promise(function (resolve) {
@@ -152,8 +148,10 @@ function loadImage(url) {
 }
 
 function loadLevel(name) {
-  return fetch('/levels/' + name + '.json').then(function (res) {
+  return fetch('./docs/levels/' + name + '.json').then(function (res) {
     return res.json();
+  }).catch(function (error) {
+    return console.log(error);
   });
 }
 

@@ -3,7 +3,7 @@ import { loadImage, loadLevel } from './loaders.js';
 import SpriteSheet from './spriteSheet.js';
 
 // addEventListener to wait for document to be loaded before loading <canvas>.
-// document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() {
   function drawBackground(background, context, sprite) {
     background.ranges.forEach(([x1, x2, y1, y2]) => {
       // Info on performance when using i++ vs ++i https://stackoverflow.com/questions/29885719/i-vs-i-in-a-javascript-for-loop
@@ -33,12 +33,5 @@ import SpriteSheet from './spriteSheet.js';
         drawBackground(background, ctx, sprite)
       ))
     })
-
-
-    // for (let x = 0; x < 35; x++) {
-    //   for (let y = 15; y < 17; y++) {
-    //     sprite.drawTile("ground", ctx, x, y); // draw "ground" on ctx with coord to position "ground" in canvas
-    //   }
-    // }
   });
-// })
+})

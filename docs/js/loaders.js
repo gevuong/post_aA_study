@@ -13,6 +13,6 @@ export function loadImage(url) {
 
 export function loadLevel(name) {
   return fetch(`./docs/levels/${name}.json`)
-    .then(r => r.json())
+    .then(res => res.json())
     .catch(error => console.log(error))
 }
