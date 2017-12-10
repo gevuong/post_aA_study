@@ -23,7 +23,7 @@ import SpriteSheet from './spriteSheet.js';
   const ctx = canvasEl.getContext("2d"); // context (or ctx) contains the API that we draw with
   // ctx.fillRect(0, 0, 50, 50); // draw black rectangle to test ctx
 
-  loadImage('/img/spriteSheet.png').then(image => { // load tiles.png, chain a .then() to create spriteSheet with image and tile size.
+  loadImage('https://res.cloudinary.com/dtluc0y85/image/upload/v1512870709/spriteSheet_cgq5yb.png').then(image => { // load tiles.png, chain a .then() to create spriteSheet with image and tile size.
     const sprite = new SpriteSheet(image, 16, 16); // specify tile size
     sprite.define("ground", 0, 0); // define sprite with a name and coord of where the tile is located in spriteSheet.png.
     sprite.define("sky", 3, 23);
