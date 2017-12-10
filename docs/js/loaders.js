@@ -1,3 +1,5 @@
+
+
 // function takes a url and returns a promise
 export function loadImage(url) {
   return new Promise(resolve => {
@@ -10,6 +12,7 @@ export function loadImage(url) {
 }
 
 export function loadLevel(name) {
-  return fetch(`/levels/${name}.json`)
-    .then(res => res.json());
+  return fetch(`./docs/levels/${name}.json`)
+    .then(r => r.json())
+    .catch(error => console.log(error))
 }

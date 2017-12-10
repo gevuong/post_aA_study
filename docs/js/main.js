@@ -2,7 +2,7 @@
 import { loadImage, loadLevel } from './loaders.js';
 import SpriteSheet from './spriteSheet.js';
 
-// add eventListener to wait for document to be loaded before loading <canvas>.
+// addEventListener to wait for document to be loaded before loading <canvas>.
 // document.addEventListener("DOMContentLoaded", function() {
   function drawBackground(background, context, sprite) {
     background.ranges.forEach(([x1, x2, y1, y2]) => {
